@@ -20,3 +20,5 @@ config add .gitconfig
 config commit -m 'Add gitconfig'
 config push
 ```
+## Credits
+The setup is taken from https://news.ycombinator.com/item?id=11071754

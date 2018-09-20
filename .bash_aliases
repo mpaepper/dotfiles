@@ -34,6 +34,7 @@ alias ~="cd ~"                              # ~:            Go Home
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
 alias show_options='shopt'                  # Show_options: display bash options settings
 alias h='fc -l 1 | grep $1'                 # h:            Find an executed command in .bash_history
+alias ping='prettyping --nolegend'
 
 # lr:  Full Recursive Directory Listing
 # ------------------------------------------

@@ -33,7 +33,7 @@ extract () {
 #         displays paginated result with colored search terms and two lines surrounding each hit.
 #         Example: mans mplayer codec
 # --------------------------------------------------------------------
-mans () { man $1 | grep -iC2 --color=always $2 | less ; }
+mans () { man $1 | grep -iC2 --color=always -- $2 | less ; }
 
 # buf:  back up file with timestamp
 # ---------------------------------------------------------

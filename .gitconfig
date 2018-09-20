@@ -10,5 +10,19 @@
 [alias]
     unadd = reset HEAD
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    c = commit -m
+    co = checkout
+    cob = checkout -b
+    cl = clone
+    b = branch
+    cp = cherry-pick
+    s = status
+    a = add
+    d = diff
+    df = diff --cached # diff added files
+    pl = pull
+    ps = push
+    la = "!git config -l | grep alias | cut -c 7-" # list all aliases
+    undo = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f" # see https://megakemp.com/2016/08/25/git-undo/
 [push]
     default = current

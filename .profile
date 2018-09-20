@@ -17,7 +17,7 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set PATH so it includes user's private bin directories
-PATH="$HOME/.xmonad/bin:$HOME/.cabal/bin:$HOME/bin:$HOME/.local/bin:$HOME/.customScripts:$PATH"
+PATH="$HOME/.xmonad/bin:$HOME/.cabal/bin:$HOME/bin:$HOME/.local/bin:$HOME/.custom/bin:$PATH"
 
 export _JAVA_AWT_WM_NONREPARENTING=1 # Fix Java // Webstorm etc for xmonad
 #xprop -root -remove _NET_WORKAREA # MP Fix chrome for xmonad, see https://github.com/xmonad/xmonad/issues/42

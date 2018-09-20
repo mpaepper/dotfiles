@@ -91,3 +91,6 @@ export PATH="/home/marc/anaconda3/bin:$PATH"
 . /home/marc/anaconda3/etc/profile.d/conda.sh
 
 source ~/.custom/functions/core.sh
+
+GIT_PROMPT_ONLY_IN_REPO=1
+source ~/.bash-git-prompt/gitprompt.sh

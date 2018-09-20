@@ -89,3 +89,5 @@ export EDITOR=vim
 # added by Anaconda3 installer
 export PATH="/home/marc/anaconda3/bin:$PATH"
 . /home/marc/anaconda3/etc/profile.d/conda.sh
+
+source ~/.custom/functions/core.sh

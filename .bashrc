@@ -90,7 +90,11 @@ export EDITOR=vim
 export PATH="/home/marc/anaconda3/bin:$PATH"
 . /home/marc/anaconda3/etc/profile.d/conda.sh
 
-source ~/.custom/functions/core.sh
+# Add custom functions
+for FUNCFILE in `find ~/.custom/functions/`
+do
+  [ -f "$FUNCFILE" ] && source "$FUNCFILE"
+done
 
 GIT_PROMPT_ONLY_IN_REPO=1
 source ~/.bash-git-prompt/gitprompt.sh

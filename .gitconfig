@@ -21,9 +21,10 @@
     a = add
     d = diff
     df = diff --cached # diff added files
-    pl = pull
+    pl = pull --rebase
     ps = push
     la = "!git config -l | grep alias | cut -c 7-" # list all aliases
     undo = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f" # see https://megakemp.com/2016/08/25/git-undo/
+    other = ls-files --other # list files which are not added
 [push]
     default = current

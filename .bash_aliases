@@ -15,7 +15,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # -----------------------------
 # 1.  MAKE TERMINAL BETTER
 # -----------------------------
-
+alias ff='find . -name'                     # Use find to search for a given file in directory
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
@@ -33,7 +33,6 @@ alias duf='du -slh *'                       # Short and human-readable directory
 alias ~="cd ~"                              # ~:            Go Home
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
 alias show_options='shopt'                  # Show_options: display bash options settings
-alias h='fc -l 1 | grep $1'                 # h:            Find an executed command in .bash_history
 alias ping='prettyping --nolegend'
 
 # lr:  Full Recursive Directory Listing

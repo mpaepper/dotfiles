@@ -20,3 +20,12 @@ imap <left> <nop>
 imap <right> <nop>
 
 inoremap jj <ESC>
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+
+call plug#end()
+
+let g:pandoc#modules#disabled = [ "spell" ] " no spell checking for pandoc

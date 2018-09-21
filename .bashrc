@@ -61,10 +61,25 @@ export EDITOR=vim
 export PATH="/home/marc/anaconda3/bin:$PATH"
 . /home/marc/anaconda3/etc/profile.d/conda.sh
 
-# Add custom functions
+# Custom functions
+# ----------------
 for FUNCFILE in `find ~/.custom/functions/`
 do
   [ -f "$FUNCFILE" ] && source "$FUNCFILE"
+done
+
+# Auto-completion
+# ---------------
+for COMPLETION in `find ~/.custom/completions/`
+do
+  [[ $- == *i* ]] && source "$COMPLETION" 2> /dev/null
+done
+
+# Key bindings
+# ------------
+for KEYBINDING in `find ~/.custom/keybindings/`
+do
+  [ -f "$KEYBINDING" ] && source "$KEYBINDING"
 done
 
 GIT_PROMPT_ONLY_IN_REPO=1

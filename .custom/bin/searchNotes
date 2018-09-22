@@ -4,8 +4,7 @@ cd ~/Dropbox/Notes
 set -e
 
 main() {
-  previous_search="$1"
-  file_to_edit=`select_file $previous_search`
+  file_to_edit=`select_file`
 
   if [ -n "$file_to_edit" ] ; then
     "$EDITOR" "$file_to_edit"
@@ -13,9 +12,11 @@ main() {
   fi
 }
 
+
+
 select_file() {
-    given_search="$1"
-    output=`grep --line-buffered --color=never -r "" * | fzf --preview="echo {} | cut -d: -f1 | xargs cat" --preview-window=right:50%:wrap | cut -d: -f1`
+    # grep all files | use fzf (preview - split by :, pass file ($0) and hit found by grep "$*" to another grep to show first and last 5 lines around the hit) | Cut occ. before : which is filename 
+    output=`grep --line-buffered --color=never -r "" * | fzf --preview='echo {} | sed "s/:/ /" | xargs bash -c '\''grep --color=always -r -B 5 -A 5 "$*" $0'\' --preview-window=right:50%:wrap | cut -d: -f1`
     echo "$output"
 }
 

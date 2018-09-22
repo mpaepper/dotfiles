@@ -1,0 +1,22 @@
+#!/bin/bash
+cd ~/Dropbox/Notes
+
+set -e
+
+main() {
+  previous_search="$1"
+  file_to_edit=`select_file $previous_search`
+
+  if [ -n "$file_to_edit" ] ; then
+    "$EDITOR" "$file_to_edit"
+    main ""
+  fi
+}
+
+select_file() {
+    given_search="$1"
+    output=`grep --line-buffered --color=never -r "" * | fzf --preview="echo {} | cut -d: -f1 | xargs cat" --preview-window=right:50%:wrap | cut -d: -f1`
+    echo "$output"
+}
+
+main ""

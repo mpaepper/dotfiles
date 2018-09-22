@@ -23,11 +23,13 @@ inoremap jj <ESC>
 
 " Use space to toggle folding
 map <Space> za
+map <C-n> :NERDTreeToggle<CR>
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } 
 
 call plug#end()
 

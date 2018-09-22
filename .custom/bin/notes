@@ -4,23 +4,35 @@ cd ~/Dropbox/Notes
 set -e
 
 main() {
-  previous_file="$1"
-  file_to_edit=`select_file $previous_file`
+  if [ "$1" = "search" ]; then
+      file=`select_by_content`
+  else
+      file=`select_by_name`
+  fi
 
-  if [ -n "$file_to_edit" ] ; then
-    "$EDITOR" "$file_to_edit"
-    main ""
+  if [ -n "$file" ] ; then
+    "$EDITOR" "$file"
+    main "$1"
   fi
 }
 
-select_file() {
-    given_file="$1"
-    output=`fzf --preview="cat {}" --preview-window=right:70%:wrap --print-query --query="$given_file"`
+select_by_name() {
+    output=`fzf --preview="cat {}" --preview-window=right:70%:wrap --print-query`
     if [ $? -eq 1 ] ; then
-        echo "$output"
+        echo "$output" # to create a new file
     else
-        echo "$output" | tail -n 1
+        echo "$output" | tail -n 1 # matching a file
     fi
 }
 
-main ""
+select_by_content() {
+    # grep all files | use fzf (preview - split by :, pass file ($0) and hit found by grep "$*" to another grep to show first and last 5 lines around the hit) | Cut occ. before : which is filename 
+    output=`grep --line-buffered --color=never -r "" * | fzf --preview='echo {} | sed "s/:/ /" | xargs bash -c '\''grep --color=always -r -B 5 -A 5 "$*" $0'\' --preview-window=right:50%:wrap | cut -d: -f1`
+    echo "$output"
+}
+
+if [ "$1" = "-s" ]; then
+    main "search"
+else
+    main ""
+fi

@@ -46,12 +46,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-set-title(){
-  ORIG=$PS1
-  TITLE="\e]2;$@\a"
-  PS1=${ORIG}${TITLE}
-}
-
 # Set prompt -> http://ezprompt.net/
 export PS1="\[\e[32m\]\u\[\e[m\]\[\e[37;40m\]\w\[\e[m\]\[\e[32m\]\\$\[\e[m\] "
 

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+primary=eDP-1
+externalMonitor="$(xrandr | grep " connected" | grep $primary -v | cut -f1 -d " ")"
+
+xrandr --output $externalMonitor --same-as $primary
+

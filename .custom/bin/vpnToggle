@@ -1,0 +1,13 @@
+#!/bin/bash
+
+disconnected=$(nmcli con | egrep "vpn(.*)--" | cut -d" " -f1)
+vpnName="mpvpn"
+
+if [ "$disconnected" == $vpnName ]; then
+    notify-send "Enabling vpn"
+    nmcli con up $vpnName
+else
+    notify-send "Disabling vpn"
+    nmcli con down $vpnName
+fi
+

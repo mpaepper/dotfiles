@@ -4,7 +4,7 @@ configFile=~/.lazyssh
 
 if [ "$1" == "--help" ]; then
   echo "Call with 'create \$key \$x@y \$port (opt)' to create a new entry.
-Call with copy 'from' 'to' to copy from server to here. Call with copyto 'to' 'from' to to copy from here to server. Call with git to get repositories info."
+Call with copy 'from' 'to' to copy from server to here. Call with copyto 'to' 'from' to to copy from here to server."
   exit 1
 elif [ "$1" == "create" ]; then
   key=$2

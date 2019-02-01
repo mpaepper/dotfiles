@@ -1,0 +1,10 @@
+#!/bin/bash
+
+FILE=~/.blueLightFilterOn
+if [ -f $FILE ]; then
+  redshift -x
+  rm $FILE
+else
+  redshift -O 3500
+  touch $FILE
+fi

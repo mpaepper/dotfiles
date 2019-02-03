@@ -4,6 +4,9 @@ set t_Co=256
 colorscheme ir_dark_gray
 set number
 
+" Use the X window clipboard by default, i.e. "+ for yank, delete etc
+set clipboard=unnamedplus
+
 " Searching
 set hlsearch
 set incsearch

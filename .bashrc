@@ -55,6 +55,8 @@ export EDITOR=vim
 export PATH="/home/marc/anaconda3/bin:$PATH"
 . /home/marc/anaconda3/etc/profile.d/conda.sh
 
+export PATH="/home/marc/.custom/bin:$PATH"
+
 # Custom functions
 # ----------------
 for FUNCFILE in `find ~/.custom/functions/`

@@ -17,7 +17,9 @@ main() {
 }
 
 select_by_name() {
-    output=`fzf --preview="cat {}" --preview-window=right:70%:wrap --print-query`
+    #output=`fzf --preview="cat {}" --preview-window=right:70%:wrap --print-query`
+    # temporarily no preview, see https://github.com/junegunn/fzf/issues/1486#issuecomment-46308936
+    output=`fzf --print-query`
     if [ $? -eq 1 ] ; then
         echo "$output" # to create a new file
     else
@@ -27,7 +29,8 @@ select_by_name() {
 
 select_by_content() {
     # grep all files | use fzf (preview - split by :, pass file ($0) and hit found by grep "$*" to another grep to show first and last 5 lines around the hit) | Cut occ. before : which is filename 
-    output=`grep --line-buffered --color=never -r "" * | fzf --preview='echo {} | sed "s/:/ /" | xargs bash -c '\''grep --color=always -r -B 5 -A 5 "$*" $0'\' --preview-window=right:50%:wrap | cut -d: -f1`
+#    output=`grep --line-buffered --color=never -r "" * | fzf --preview='echo {} | sed "s/:/ /" | xargs bash -c '\''grep --color=always -r -B 5 -A 5 "$*" $0'\' --preview-window=right:50%:wrap | cut -d: -f1`
+    output=`grep --line-buffered --color=never -r "" * | fzf | cut -d: -f1`
     echo "$output"
 }
 

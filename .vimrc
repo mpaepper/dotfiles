@@ -1,7 +1,8 @@
 set nocompatible
 syntax on
 set t_Co=256
-colorscheme ir_dark_gray
+colorscheme morning
+"colorscheme ir_dark_gray
 set number
 
 " Use the X window clipboard by default, i.e. "+ for yank, delete etc
@@ -28,7 +29,7 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
-inoremap jj <ESC>
+inoremap fd <ESC>
 
 " Use space to toggle folding
 map <Space> za

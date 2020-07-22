@@ -82,3 +82,5 @@ GIT_PROMPT_ONLY_IN_REPO=1
 source ~/.bash-git-prompt/gitprompt.sh
 
 stty -ixon # Don't hang on Ctrl+S in terminals
+
+set -o vi # Use vim bindings for terminal

@@ -1,16 +1,12 @@
 {
-  "Cell": {
-    "cm_config": {
-      "lineNumbers": true
-    }
-  }, 
   "load_extensions": {
-    "collapsible_headings/main": true, 
-    "toc2/main": true, 
-    "zenmode/main": false, 
-    "nbextensions_configurator/config_menu/main": true, 
-    "codefolding/main": true, 
-    "vim_binding/vim_binding": true, 
-    "contrib_nbextensions_help_item/main": true
+    "vim_binding/vim_binding": true,
+    "zenmode/main": false,
+    "collapsible_headings/main": true,
+    "codefolding/main": true,
+    "toc2/main": true
+  },
+  "Notebook": {
+    "Header": true
   }
 }

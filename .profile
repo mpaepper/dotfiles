@@ -23,3 +23,5 @@ export _JAVA_AWT_WM_NONREPARENTING=1 # Fix Java // Webstorm etc for xmonad
 #xprop -root -remove _NET_WORKAREA # MP Fix chrome for xmonad, see https://github.com/xmonad/xmonad/issues/42
 
 export TERM='xterm-256color'
+export GOPATH=$HOME/go_work
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin

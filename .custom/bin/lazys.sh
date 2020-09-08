@@ -57,13 +57,28 @@ port=${ports[$choice]}
 key=${keys[$choice]}
 
 if [ "$1" == "cp" ]; then
-  echo "Will do: scp -ip ~/.ssh/$key -P$port -r $name@$ip:$2 $3"
-  scp -p -i ~/.ssh/$key -P$port -r $name@$ip:$2 $3
+  if [ -n "$key" ]; then
+      echo "Will do: scp -ip ~/.ssh/$key -P$port -r $name@$ip:$2 $3"
+      scp -p -i ~/.ssh/$key -P$port -r $name@$ip:$2 $3
+  else
+      echo "Will do: scp -p -P$port -r $name@$ip:$2 $3"
+      scp -p -P$port -r $name@$ip:$2 $3
+  fi
 elif [ "$1" == "cpto" ]; then
-  echo "Will do: scp -ip ~/.ssh/$key -P$port -r $2 $name@$ip:$3"
-  scp -p -i ~/.ssh/$key -P$port -r $2 $name@$ip:$3
+  if [ -n "$key" ]; then
+      echo "Will do: scp -ip ~/.ssh/$key -P$port -r $2 $name@$ip:$3"
+      scp -p -i ~/.ssh/$key -P$port -r $2 $name@$ip:$3
+  else
+      echo "Will do: scp -P$port -r $2 $name@$ip:$3"
+      scp -p -P$port -r $2 $name@$ip:$3
+  fi
 else
-  echo "Will do: ssh -i ~/.ssh/$key -p$port $name@$ip"
-  ssh -i ~/.ssh/$key -p$port $name@$ip
+  if [ -n "$key" ]; then
+      echo "Will do: ssh -i ~/.ssh/$key -P$port $name@$ip"
+      ssh -i ~/.ssh/$key -p$port $name@$ip
+  else
+      echo "Will do: ssh -p$port $name@$ip"
+      ssh -p$port $name@$ip
+  fi
 fi
 

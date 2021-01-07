@@ -33,11 +33,12 @@ values."
      markdown
      javascript
      xclipboard
-     (python :variables python-formatter 'yapf python-lsp-server 'mspyls)
+     (python :variables python-formatter 'yapf python-lsp-server 'pyright)
      helm
      auto-completion
      ;; better-defaults
      emacs-lisp
+     (conda :variables conda-anaconda-home "/home/marc/anaconda3")
      git
      (dap :variables
             dap-enable-ui-controls nil)
@@ -300,6 +301,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
   )
 
 (defun dotspacemacs/user-config ()
+  (with-eval-after-load 'dap-mode
+    (setq dap-auto-configure-features '(sessions locals breakpoints expressions)))
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration.
